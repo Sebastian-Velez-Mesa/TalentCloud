@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TalentCloud v1.1 - Reclutamiento Técnico Inteligente</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="TalentCloud centraliza, procesa y califica de forma automática la afinidad de tus candidatos en segundos con ingeniería de datos y procesamiento NLP avanzado.">
+  <meta name="author" content="Sebastián Vélez Mesa">
+  <!-- Open Graph -->
+  <meta property="og:title" content="TalentCloud v1.1 - Reclutamiento Técnico Inteligente">
+  <meta property="og:description" content="De un buzón lleno de PDFs al Match Técnico Perfecto. Automatización con Ingeniería de Datos.">
+  <meta property="og:type" content="website">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Background Orbs -->
+  <div class="glow-orb glow-blue"></div>
+  <div class="glow-orb glow-cyan"></div>
+  <div class="glow-orb glow-gold"></div>
+
+  <!-- SECCIÓN 1: NAVEGACIÓN -->
+  <header>
+    <nav class="navbar" id="main-navbar">
+      <div class="nav-container">
+        <a href="#" class="logo-link" id="nav-logo">
+          <!-- Inline Logo SVG -->
+          <svg class="logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>TalentCloud<span class="logo-version">v1.1</span></span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="#problema" class="nav-link" id="link-problema">Problema</a></li>
+          <li><a href="#solucion" class="nav-link" id="link-solucion">Solución</a></li>
+          <li><a href="#features" class="nav-link" id="link-features">Características</a></li>
+          <li><a href="#simulador" class="nav-link" id="link-simulador">Simulador</a></li>
+          <li><a href="#faq" class="nav-link" id="link-faq">FAQ</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="#contacto" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.9rem;" id="btn-ingresar">Ingresar</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- SECCIÓN 1: HERO SECTION -->
+    <section class="hero" id="hero-section">
+      <div class="container">
+        <div class="badge" id="hero-badge">
+          <span class="badge-pulse"></span>
+          Motor NLP Optimizado para PDFs
+        </div>
+        <h1 class="hero-title" id="main-title">
+          De un buzón lleno de PDFs<br>
+          al <span class="grad">Match Técnico Perfecto</span>
+        </h1>
+        <p class="hero-subtitle" id="main-subtitle">
+          TalentCloud v1.1 centraliza, procesa y califica de forma automática la afinidad de tus candidatos en segundos.
+        </p>
+        <div class="hero-cta">
+          <a href="#simulador" class="btn btn-accent" id="btn-cta-demo">Probar Demo Gratis</a>
+          <a href="#solucion" class="btn btn-secondary" id="btn-cta-more">Conocer Arquitectura</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: LA REALIDAD DEL MERCADO (EL PROBLEMA) -->
+    <section class="section-padding" id="problema">
+      <div class="container">
+        <div class="text-center">
+          <div class="badge">El Dolor de Reclutamiento</div>
+          <h2 class="section-title">La realidad del mercado técnico</h2>
+          <p class="section-subtitle">El filtrado tradicional de talento consume recursos de ingeniería clave y ralentiza el crecimiento.</p>
+        </div>
+        <div class="problem-cards">
+          <!-- Card 1 -->
+          <div class="card-dark" id="problem-card-1">
+            <div class="card-icon-container">
+              <!-- Trash / Unstructured Icon -->
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
+            </div>
+            <h3>Buzones Inundados</h3>
+            <p>Miles de archivos PDF acumulados sin estructura, metadatos legibles ni ordenamiento lógico, haciendo imposible la búsqueda semántica rápida.</p>
+          </div>
+          <!-- Card 2 -->
+          <div class="card-dark" id="problem-card-2">
+            <div class="card-icon-container">
+              <!-- Clock / Waste Icon -->
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3>Jornadas Desperdiciadas</h3>
+            <p>Hasta el 70% del tiempo de tus líderes de reclutamiento se pierde en leer hojas de vida de forma visual antes de realizar el primer filtro técnico.</p>
+          </div>
+          <!-- Card 3 -->
+          <div class="card-dark" id="problem-card-3">
+            <div class="card-icon-container">
+              <!-- User Block / Rejected Icon -->
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+              </svg>
+            </div>
+            <h3>Descarte Injusto</h3>
+            <p>Buenos ingenieros y perfiles técnicos son ignorados debido a filtros rígidos basados en palabras clave exactas o pequeños errores tipográficos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: LA SOLUCIÓN (PRESENTACIÓN DE TALENTCLOUD) -->
+    <section class="section-padding" style="background: rgba(255, 255, 255, 0.01);" id="solucion">
+      <div class="container">
+        <div class="solution-split">
+          <div class="solution-text">
+            <div class="badge" style="background: rgba(6, 182, 212, 0.1); border-color: rgba(6, 182, 212, 0.2); color: var(--accent-cyan);">La Solución</div>
+            <h2>Automatización con <span>Ingeniería de Datos</span></h2>
+            <p>TalentCloud v1.1 reemplaza la revisión aleatoria por un pipeline estructurado de datos. El sistema extrae metadatos clave, analiza habilidades y los indexa directamente en base de datos para una búsqueda y ordenamiento inmediatos.</p>
+            <ul class="tech-checklist">
+              <li>
+                <!-- Check Icon -->
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Parser nativo de alta precisión para PDFs
+              </li>
+              <li>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Estructuración JSON automatizada de perfiles
+              </li>
+              <li>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Score de afinidad técnica basado en requisitos vacantes
+              </li>
+            </ul>
+          </div>
+          <!-- Solution Mockup Widget -->
+          <div class="mockup-container" id="solution-dashboard-mockup">
+            <div class="mockup-header">
+              <div class="mockup-dots">
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+              </div>
+              <div class="mockup-title">talentcloud-console-v1.1</div>
+            </div>
+            <div class="pipeline-board">
+              <!-- Candidate Row 1 -->
+              <div class="candidate-row">
+                <div class="candidate-info">
+                  <div class="candidate-avatar">AH</div>
+                  <div class="candidate-meta">
+                    <h4>Alberto Herrera</h4>
+                    <p>Java Developer • Spring Boot</p>
+                  </div>
+                </div>
+                <div class="candidate-score">
+                  <span class="score-badge">94% Match</span>
+                  <div class="candidate-status" style="color: #22c55e;">Aprobado</div>
+                </div>
+              </div>
+              <!-- Candidate Row 2 -->
+              <div class="candidate-row">
+                <div class="candidate-info">
+                  <div class="candidate-avatar" style="background: linear-gradient(135deg, #a855f7, #ec4899);">MG</div>
+                  <div class="candidate-meta">
+                    <h4>Marta Gómez</h4>
+                    <p>Frontend Dev • React & TS</p>
+                  </div>
+                </div>
+                <div class="candidate-score">
+                  <span class="score-badge">88% Match</span>
+                  <div class="candidate-status" style="color: #22c55e;">Aprobado</div>
+                </div>
+              </div>
+              <!-- Candidate Row 3 -->
+              <div class="candidate-row">
+                <div class="candidate-info">
+                  <div class="candidate-avatar" style="background: linear-gradient(135deg, #eab308, #f97316);">JP</div>
+                  <div class="candidate-meta">
+                    <h4>Juan Pablo Pérez</h4>
+                    <p>Backend Dev • Node & MySQL</p>
+                  </div>
+                </div>
+                <div class="candidate-score">
+                  <span class="score-badge mid">75% Match</span>
+                  <div class="candidate-status" style="color: #eab308;">En Revisión</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: CARACTERÍSTICAS CLAVE -->
+    <section class="section-padding" id="features">
+      <div class="container">
+        <div class="text-center">
+          <div class="badge">Características</div>
+          <h2 class="section-title">Infraestructura diseñada para durar</h2>
+          <p class="section-subtitle">Descubre los pilares tecnológicos que componen nuestra arquitectura de reclutamiento inteligente.</p>
+        </div>
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="feature-box" id="feat-ingesta">
+            <div class="feature-icon-wrapper">
+              <!-- Upload Icon -->
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+              </svg>
+            </div>
+            <h3>Ingesta Inteligente</h3>
+            <p>Carga y lee masivamente currículums en formato PDF. El parser extrae la data estructurada de forma inmediata sin pérdidas.</p>
+          </div>
+          <!-- Feature 2 -->
+          <div class="feature-box" id="feat-procesamiento">
+            <div class="feature-icon-wrapper" style="background: rgba(168, 85, 247, 0.1); color: #a855f7;">
+              <!-- NLP / CPU Icon -->
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h3>Procesamiento NLP</h3>
+            <p>Utilizamos algoritmos de procesamiento de lenguaje natural (NLP) para identificar stacks, años de experiencia y tecnologías automáticamente.</p>
+          </div>
+          <!-- Feature 3 -->
+          <div class="feature-box" id="feat-matching">
+            <div class="feature-icon-wrapper" style="background: rgba(34, 197, 94, 0.1); color: #22c55e;">
+              <!-- Scale / Match Icon -->
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+              </svg>
+            </div>
+            <h3>Algoritmo de Matching</h3>
+            <p>Calcula scores de afinidad precisos cruzando las habilidades del candidato con los requisitos de la vacante, ordenándolos dinámicamente.</p>
+          </div>
+          <!-- Feature 4 -->
+          <div class="feature-box" id="feat-seguridad">
+            <div class="feature-icon-wrapper" style="background: rgba(251, 191, 36, 0.1); color: var(--accent-gold);">
+              <!-- Database / Shield Icon -->
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+              </svg>
+            </div>
+            <h3>Persistencia Segura</h3>
+            <p>Toda la información se normaliza en una arquitectura SQL y se hospeda de forma segura dentro de contenedores aislados (Docker).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 5: SIMULADOR DE MATCH INTERACTIVO -->
+    <section class="section-padding" style="background: rgba(0, 0, 0, 0.2);" id="simulador">
+      <div class="container">
+        <div class="text-center">
+          <div class="badge">Simulador</div>
+          <h2 class="section-title">Prueba el motor de afinidad</h2>
+          <p class="section-subtitle">Selecciona una vacante, simula la carga de un currículum en formato PDF y observa la calificación de afinidad instantánea.</p>
+        </div>
+        
+        <div class="simulator-layout">
+          <!-- Left: Vacancy Select -->
+          <div class="sim-left">
+            <h3 class="sim-title">1. Selecciona la Vacante</h3>
+            <p class="sim-description">Indica el perfil técnico que estás buscando para la comparación de afinidad.</p>
+            
+            <div class="vacancy-selector">
+              <!-- Option 1 -->
+              <div class="vacancy-option active" data-vacancy="backend" id="vac-backend">
+                <div>
+                  <h4>Backend Developer</h4>
+                  <span>Stack: Java, Spring Boot, MySQL</span>
+                </div>
+                <div class="vacancy-radio"></div>
+              </div>
+              <!-- Option 2 -->
+              <div class="vacancy-option" data-vacancy="frontend" id="vac-frontend">
+                <div>
+                  <h4>Frontend Engineer</h4>
+                  <span>Stack: React.js, TypeScript, CSS</span>
+                </div>
+                <div class="vacancy-radio"></div>
+              </div>
+              <!-- Option 3 -->
+              <div class="vacancy-option" data-vacancy="data" id="vac-data">
+                <div>
+                  <h4>Data Scientist</h4>
+                  <span>Stack: Python, Pandas, SQL</span>
+                </div>
+                <div class="vacancy-radio"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Drag & Drop Mock Area -->
+          <div class="sim-right">
+            <div class="drag-area" id="sim-drag-area">
+              <div class="drag-icon-container">
+                <!-- PDF Document Icon -->
+                <svg class="drag-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 9h1v1H9V9zm0 4h6v1H9v-1zm0 4h6v1H9v-1z" />
+                </svg>
+              </div>
+              <p class="primary">Haz clic para Simular Carga de CV</p>
+              <p class="secondary">Soporta formatos técnicos (PDF, TXT, DOCX)</p>
+
+              <!-- Loading overlay -->
+              <div class="loader-overlay" id="sim-loader">
+                <div class="loader-spinner"></div>
+                <div class="loader-text" id="sim-loader-text">Procesando documento...</div>
+              </div>
+
+              <!-- Result overlay -->
+              <div class="result-overlay" id="sim-result">
+                <div class="dial-container">
+                  <svg class="dial-svg" viewBox="0 0 120 120">
+                    <circle class="dial-bg" cx="60" cy="60" r="50"></circle>
+                    <circle class="dial-progress" id="dial-progress" cx="60" cy="60" r="50"></circle>
+                  </svg>
+                  <div class="dial-text" id="dial-score-value">0%</div>
+                </div>
+                <h3 class="result-match-title" id="result-match-title">Match Calculado</h3>
+                <p class="result-match-candidate" id="result-candidate-name">Candidato Anónimo (CV.pdf)</p>
+                <div class="skills-found" id="result-skills-container">
+                  <!-- JS appends tags here -->
+                </div>
+                <button class="btn btn-secondary btn-reset-sim" id="btn-reset-simulator">Cargar Nuevo CV</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 6: IMPACTO E INDICADORES (MÉTRICAS) -->
+    <section class="section-padding metrics-section" id="metricas">
+      <div class="container">
+        <div class="metrics-grid">
+          <!-- Metric 1 -->
+          <div class="metric-item" id="metric-1">
+            <div class="metric-number">-70%</div>
+            <div class="metric-text">Tiempo de Filtrado</div>
+            <p class="metric-description">Reducción del esfuerzo manual en la fase inicial de lectura de currículums en PDF.</p>
+          </div>
+          <!-- Metric 2 -->
+          <div class="metric-item" id="metric-2">
+            <div class="metric-number">+40%</div>
+            <div class="metric-text">Eficiencia de Preselección</div>
+            <p class="metric-description">Aumento en la velocidad de agendamiento y calidad de los candidatos que pasan a entrevista técnica.</p>
+          </div>
+          <!-- Metric 3 -->
+          <div class="metric-item" id="metric-3">
+            <div class="metric-number">0%</div>
+            <div class="metric-text">Duplicidad de Datos</div>
+            <p class="metric-description">Integración directa y consistencia relacional mediante un modelo normalizado en base de datos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 7: PREGUNTAS FRECUENTES (FAQ) -->
+    <section class="section-padding" id="faq">
+      <div class="container">
+        <div class="text-center">
+          <div class="badge">Soporte</div>
+          <h2 class="section-title">Preguntas Frecuentes</h2>
+          <p class="section-subtitle">Respuestas rápidas sobre el funcionamiento del motor y la arquitectura del sistema.</p>
+        </div>
+
+        <div class="faq-list">
+          <!-- FAQ 1 -->
+          <div class="faq-item" id="faq-item-1">
+            <button class="faq-question" id="faq-q-1">
+              ¿Cómo se calcula el Match Score?
+              <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                El score se genera al contrastar las tecnologías y experiencia extraídas del PDF mediante nuestro parser NLP contra los requerimientos parametrizados de la vacante. Evaluamos la coincidencia semántica y lógica de las habilidades clave (Skills) para arrojar un porcentaje de coincidencia de 0 a 100%.
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 2 -->
+          <div class="faq-item" id="faq-item-2">
+            <button class="faq-question" id="faq-q-2">
+              ¿Los datos de los candidatos están seguros?
+              <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Totalmente. La arquitectura utiliza una base de datos relacional MySQL normalizada para evitar redundancias y asegurar la integridad referencial. El entorno backend está configurado bajo contenedores Docker, garantizando un despliegue aislado y seguro de las credenciales y flujos de datos.
+              </div>
+            </div>
+          </div>
+          <!-- FAQ 3 -->
+          <div class="faq-item" id="faq-item-3">
+            <button class="faq-question" id="faq-q-3">
+              ¿Qué formatos de archivos soporta?
+              <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Ofrecemos soporte nativo optimizado para archivos PDF de currículum. La versión 1.1 cuenta con un motor de parsing de texto altamente robusto que previene errores de estructuración y decodifica las tablas de experiencia del candidato sin perder la consistencia del texto.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 8: CAPTURA DE LEADS (FORMULARIO) -->
+    <section class="section-padding lead-section" id="contacto">
+      <div class="container">
+        <div class="form-box">
+          <!-- Input fields container -->
+          <div id="form-inputs-container">
+            <h2 class="form-title">Únete a TalentCloud</h2>
+            <p class="form-subtitle">Completa tus datos para agendar una demostración de la arquitectura v1.1 y solicitar acceso al ecosistema.</p>
+            
+            <form id="lead-capture-form">
+              <div class="form-group">
+                <label class="form-label" for="lead-name">Nombre Completo</label>
+                <input class="form-input" type="text" id="lead-name" placeholder="Ej: Carlos Mendoza" required>
+                <span class="form-error" id="error-lead-name">Por favor ingresa tu nombre completo.</span>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label" for="lead-email">Correo Corporativo</label>
+                <input class="form-input" type="email" id="lead-email" placeholder="Ej: carlos@tuempresa.com" required>
+                <span class="form-error" id="error-lead-email">Por favor ingresa un correo electrónico corporativo válido.</span>
+              </div>
+              
+              <button class="btn btn-accent" style="width: 100%; margin-top: 10px;" id="btn-submit-lead" type="submit">Solicitar Acceso al Ecosistema</button>
+            </form>
+          </div>
+
+          <!-- Success Msg Container -->
+          <div class="form-success-msg" id="form-success-container">
+            <!-- Check Icon -->
+            <svg class="form-success-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h3>¡Registro Exitoso, <span id="success-user-name"></span>!</h3>
+            <p>Un ingeniero de soluciones se pondrá en contacto contigo en las próximas horas para coordinar la demo técnica.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SECCIÓN 8: FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="#" class="logo-link">
+          <svg class="logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>TalentCloud</span>
+        </a>
+        <div class="footer-tech-stack">
+          <!-- Java Badge -->
+          <div class="tech-tag">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M2 15.5c0 1.25.75 2 2.25 2.25s3 .25 4.5.25c1.5 0 3-.25 4.5-.5s2.25-1 2.25-2c0-.75-.5-1.25-1.5-1.5-1.25-.5-3.25-.75-5.25-.75-2 0-4 .25-5.25.75-1 .25-1.5.75-1.5 1.5zm11-1.75c1.25.5 2.5 1.25 2.5 2.25s-1.25 1.75-3.5 2c-.5.125-1.125.125-1.75.125-2.25 0-4.5-.25-6.5-.75L2 17.5v-1l1.75.25c1.75.25 3.5.5 5.5.5 1.5 0 3-.125 4.25-.25 1.25-.125 2-.375 2-.75s-.75-.5-1.75-.75l-.75-.25z"/>
+            </svg>
+            Java
+          </div>
+          <!-- MySQL Badge -->
+          <div class="tech-tag">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 3.79 2 6v12c0 2.21 4.48 4 10 4s10-1.79 10-4V6c0-2.21-4.48-4-10-4zm0 2c4.42 0 8 1.34 8 3s-3.58 3-8 3-8-1.34-8-3 3.58-3 8-3zm8 8c0 1.66-3.58 3-8 3s-8-1.34-8-3V9.64c1.8 1.1 4.7 1.76 8 1.76s6.2-.66 8-1.76V12zm0 6c0 1.66-3.58 3-8 3s-8-1.34-8-3v-2.64c1.8 1.1 4.7 1.76 8 1.76s6.2-.66 8-1.76V18z"/>
+            </svg>
+            MySQL
+          </div>
+          <!-- Docker Badge -->
+          <div class="tech-tag">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 13.56c0-.28.22-.5.5-.5h2.12c.28 0 .5.22.5.5v2.12c0 .28-.22.5-.5.5H3.5a.5.5 0 01-.5-.5v-2.12zm3.12 0c0-.28.22-.5.5-.5h2.12c.28 0 .5.22.5.5v2.12c0 .28-.22.5-.5.5H6.62a.5.5 0 01-.5-.5v-2.12zm3.12 0c0-.28.22-.5.5-.5h2.12c.28 0 .5.22.5.5v2.12c0 .28-.22.5-.5.5H9.74a.5.5 0 01-.5-.5v-2.12zM3 10.44c0-.28.22-.5.5-.5h2.12c.28 0 .5.22.5.5v2.12c0 .28-.22.5-.5.5H3.5a.5.5 0 01-.5-.5v-2.12zm3.12 0c0-.28.22-.5.5-.5h2.12c.28 0 .5.22.5.5v2.12c0 .28-.22.5-.5.5H6.62a.5.5 0 01-.5-.5v-2.12zm3.12 0c0-.28.22-.5.5-.5h2.12c.28 0 .5.22.5.5v2.12c0 .28-.22.5-.5.5H9.74a.5.5 0 01-.5-.5v-2.12zm3.13 0c0-.28.22-.5.5-.5h2.12c.28 0 .5.22.5.5v2.12c0 .28-.22.5-.5.5H12.87a.5.5 0 01-.5-.5v-2.12zM21.94 12c-.5-1.57-2.03-2.62-3.7-2.62h-2v3.25h1c.96 0 1.75.79 1.75 1.75v1.25c0 .28.22.5.5.5s.5-.22.5-.5v-1.25c0-.96-.79-1.75-1.75-1.75H17.2V11.38h1.04c.96 0 1.75.79 1.75 1.75s-.79 1.75-1.75 1.75H1.62c-.22 0-.4.18-.4.4v.32C1.22 17.5 4.5 19 8.5 19c6.38 0 11.25-3.62 13.44-7z"/>
+            </svg>
+            Docker
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 TalentCloud Systems. Sustentación de Proyecto.</p>
+        <p>Desarrollado por: <strong>Sebastián Vélez Mesa</strong></p>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Documentación API</a>
+          <a href="#" class="footer-link">Términos</a>
+          <a href="#" class="footer-link">Privacidad</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Logic -->
+  <script src="./app.js"></script>
+</body>
+</html>
