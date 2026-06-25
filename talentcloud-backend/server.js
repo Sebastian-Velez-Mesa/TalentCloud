@@ -18,6 +18,7 @@ app.put('/api/empresas/:id', empresaCtrl.updateEmpresa);
 app.delete('/api/empresas/:id', empresaCtrl.deleteEmpresa);
 
 app.post('/api/usuarios', usuarioCtrl.createUsuario);
+app.post('/api/auth/login', usuarioCtrl.loginUsuario);
 app.get('/api/usuarios', usuarioCtrl.getAllUsuarios);
 app.get('/api/usuarios/:id', usuarioCtrl.getUsuarioById);
 app.put('/api/usuarios/:id', usuarioCtrl.updateUsuario);
