@@ -1,11 +1,14 @@
 const mysql = require('mysql2');
+require('dotenv').config(); // Asegurar que cargue si se corre solo este archivo
+
 const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'talentcloud_db',
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || '',
+    database: process.env.DB_NAME || 'talentcloud_db',
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
 });
+
 module.exports = pool.promise();

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" role="img" aria-label="TalentCloud logo">
+  <defs>
+    <linearGradient id="g1" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="60%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" rx="28" fill="#071024"/>
+  <g transform="translate(36,36) scale(0.66)">
+    <!-- cloud shape -->
+    <path d="M90 20c-12 0-22 7-27 17-5-4-11-6-17-6-14 0-25 11-25 25 0 14 11 25 25 25h78c18 0 32-14 32-32 0-18-14-32-32-32-6 0-12 2-16 5-6-14-20-22-40-22z" fill="url(#g1)" opacity="0.95"/>
+    <!-- three people dots -->
+    <circle cx="64" cy="56" r="8" fill="#FFD166"/>
+    <circle cx="96" cy="44" r="10" fill="#FFD166"/>
+    <circle cx="128" cy="56" r="8" fill="#FFD166"/>
+    <!-- swoosh -->
+    <path d="M48 120c18-18 48-34 88-22" stroke="#FFD166" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.95"/>
+    <!-- TC monogram -->
+    <text x="60" y="170" font-family="Inter, sans-serif" font-weight="700" font-size="48" fill="#E6EEF8">TC</text>
+  </g>
+</svg>

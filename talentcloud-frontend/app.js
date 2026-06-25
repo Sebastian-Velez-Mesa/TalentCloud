@@ -1,74 +1,100 @@
 /**
  * TalentCloud v1.1 - Interactive Frontend Logic
+ * Handles: Navbar scroll, FAQ accordion, Match simulator, Lead form, Scroll animations
  * Author: Sebastián Vélez Mesa | 2026
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbarScroll();
+  initScrollAnimations();
   initFaqAccordion();
   initMatchSimulator();
   initLeadForm();
 });
 
-/**
- * 1. Navbar Scroll Effect
- * Adds backdrop shadow and compact layout on page scroll.
- */
+/* ========================================
+   1. NAVBAR SCROLL EFFECT
+   ======================================== */
 function initNavbarScroll() {
   const navbar = document.getElementById('main-navbar');
   if (!navbar) return;
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      navbar.classList.add('scrolled');
+  const onScroll = () => {
+    if (window.scrollY > 30) {
+      navbar.classList.add('bg-black/80', 'shadow-2xl', 'shadow-black/40');
+      navbar.classList.remove('bg-transparent');
     } else {
-      navbar.classList.remove('scrolled');
+      navbar.classList.remove('bg-black/80', 'shadow-2xl', 'shadow-black/40');
+      navbar.classList.add('bg-transparent');
     }
-  });
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); // Initial check
 }
 
-/**
- * 2. FAQ Accordion Control
- * Controls smooth open/close expansion transitions for FAQs.
- */
+/* ========================================
+   2. SCROLL-TRIGGERED ANIMATIONS
+   ======================================== */
+function initScrollAnimations() {
+  const elements = document.querySelectorAll('.animate-on-scroll');
+  if (elements.length === 0) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  elements.forEach(el => observer.observe(el));
+}
+
+/* ========================================
+   3. FAQ ACCORDION
+   ======================================== */
 function initFaqAccordion() {
   const faqItems = document.querySelectorAll('.faq-item');
 
   faqItems.forEach(item => {
-    const questionButton = item.querySelector('.faq-question');
-    const answerContainer = item.querySelector('.faq-answer');
+    const btn = item.querySelector('.faq-trigger');
+    const panel = item.querySelector('.faq-answer-panel');
+    const chevron = item.querySelector('.faq-chevron');
 
-    if (!questionButton || !answerContainer) return;
+    if (!btn || !panel) return;
 
-    questionButton.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
 
-      // Close all other active items first
-      faqItems.forEach(otherItem => {
-        if (otherItem !== item && otherItem.classList.contains('active')) {
-          otherItem.classList.remove('active');
-          const otherAnswer = otherItem.querySelector('.faq-answer');
-          if (otherAnswer) otherAnswer.style.maxHeight = '0px';
+      // Close all others
+      faqItems.forEach(other => {
+        if (other !== item && other.classList.contains('open')) {
+          other.classList.remove('open');
+          const otherPanel = other.querySelector('.faq-answer-panel');
+          const otherChevron = other.querySelector('.faq-chevron');
+          if (otherPanel) otherPanel.style.maxHeight = '0px';
+          if (otherChevron) otherChevron.style.transform = 'rotate(0deg)';
         }
       });
 
-      // Toggle current item
-      if (isActive) {
-        item.classList.remove('active');
-        answerContainer.style.maxHeight = '0px';
+      if (isOpen) {
+        item.classList.remove('open');
+        panel.style.maxHeight = '0px';
+        if (chevron) chevron.style.transform = 'rotate(0deg)';
       } else {
-        item.classList.add('active');
-        // Calculate container height dynamically for smooth rendering
-        answerContainer.style.maxHeight = answerContainer.scrollHeight + 'px';
+        item.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        if (chevron) chevron.style.transform = 'rotate(180deg)';
       }
     });
   });
 }
 
-/**
- * 3. Interactive Match Simulator
- * Simulates analyzing a resume against a selected vacancy.
- */
+/* ========================================
+   4. INTERACTIVE MATCH SIMULATOR
+   ======================================== */
 function initMatchSimulator() {
   const vacancyOptions = document.querySelectorAll('.vacancy-option');
   const dragArea = document.getElementById('sim-drag-area');
@@ -76,107 +102,98 @@ function initMatchSimulator() {
   const loaderText = document.getElementById('sim-loader-text');
   const resultOverlay = document.getElementById('sim-result');
   const resetBtn = document.getElementById('btn-reset-simulator');
-
-  // SVG Dial Elements
-  const dialProgress = document.getElementById('dial-progress');
+  const dialArc = document.getElementById('dial-arc');
   const dialScoreText = document.getElementById('dial-score-value');
-  const matchCandidateText = document.getElementById('result-candidate-name');
   const matchTitleText = document.getElementById('result-match-title');
+  const matchCandidateText = document.getElementById('result-candidate-name');
   const skillsContainer = document.getElementById('result-skills-container');
 
   if (!dragArea || !loaderOverlay || !resultOverlay) return;
 
-  // Vacancy Data
+  // Data per vacancy
   const vacanciesData = {
     backend: {
-      candidateName: "Carlos Mendoza",
+      candidateName: 'Carlos Mendoza',
       score: 87,
-      label: "Excelente Afinidad",
-      skills: ["Java 17", "Spring Boot", "MySQL", "Docker", "REST APIs"]
+      label: 'Excelente Afinidad',
+      skills: ['Java 17', 'Spring Boot', 'MySQL', 'Docker', 'REST APIs']
     },
     frontend: {
-      candidateName: "Sofía Moreno",
+      candidateName: 'Sofía Moreno',
       score: 94,
-      label: "Match Excepcional",
-      skills: ["React.js", "TypeScript", "CSS Vanilla", "Vite", "Web Performance"]
+      label: 'Match Excepcional',
+      skills: ['React.js', 'TypeScript', 'Tailwind CSS', 'Vite', 'Performance']
     },
     data: {
-      candidateName: "Felipe Gaviria",
+      candidateName: 'Felipe Gaviria',
       score: 79,
-      label: "Buen Match Relacional",
-      skills: ["Python", "Pandas", "MySQL", "Docker", "Scikit-Learn"]
+      label: 'Buen Match Relacional',
+      skills: ['Python', 'Pandas', 'MySQL', 'Docker', 'Scikit-Learn']
     }
   };
 
   let selectedVacancy = 'backend';
 
-  // 1. Selector vacancy handler
+  // Vacancy selector
   vacancyOptions.forEach(option => {
     option.addEventListener('click', () => {
-      // Remove active from all options
-      vacancyOptions.forEach(opt => opt.classList.remove('active'));
-      // Add active to current
-      option.classList.add('active');
+      vacancyOptions.forEach(o => o.classList.remove('active', 'border-blue-500/60', 'bg-blue-500/10'));
+      vacancyOptions.forEach(o => o.classList.add('border-white/[0.06]', 'bg-white/[0.02]'));
+      option.classList.add('active', 'border-blue-500/60', 'bg-blue-500/10');
+      option.classList.remove('border-white/[0.06]', 'bg-white/[0.02]');
       selectedVacancy = option.getAttribute('data-vacancy');
     });
   });
 
-  // 2. Click or Drag trigger simulation
+  // Click to simulate
   dragArea.addEventListener('click', startSimulation);
 
-  // Fictitious drag and drop visual response
+  // Visual drag response (fictitious)
   dragArea.addEventListener('dragover', (e) => {
     e.preventDefault();
-    dragArea.style.borderColor = 'var(--accent-cyan)';
-    dragArea.style.background = 'rgba(var(--accent-cyan-rgb), 0.05)';
+    dragArea.classList.add('border-cyan-400/60');
   });
-
   dragArea.addEventListener('dragleave', () => {
-    dragArea.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-    dragArea.style.background = 'rgba(255, 255, 255, 0.02)';
+    dragArea.classList.remove('border-cyan-400/60');
   });
-
   dragArea.addEventListener('drop', (e) => {
     e.preventDefault();
-    dragArea.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-    dragArea.style.background = 'rgba(255, 255, 255, 0.02)';
+    dragArea.classList.remove('border-cyan-400/60');
     startSimulation();
   });
 
-  // Reset simulator
-  resetBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // Avoid triggering dragArea click
-    resultOverlay.classList.remove('active');
-    // Reset SVG offset
-    if (dialProgress) dialProgress.style.strokeDashoffset = '314';
-  });
+  // Reset
+  if (resetBtn) {
+    resetBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      resultOverlay.classList.remove('active');
+      if (dialArc) dialArc.style.strokeDashoffset = '314';
+      if (dialScoreText) dialScoreText.textContent = '0%';
+    });
+  }
 
   function startSimulation() {
-    // Prevent starting if already displaying results
     if (resultOverlay.classList.contains('active') || loaderOverlay.classList.contains('active')) return;
 
     loaderOverlay.classList.add('active');
-    
-    // Animate loader text stages
+
     const stages = [
-      "Leyendo PDF de Currículum...",
-      "Extrayendo competencias y experiencia...",
-      "Calculando score de coincidencia relacional...",
-      "Normalizando datos en base de datos..."
+      'Leyendo PDF del Currículum...',
+      'Extrayendo competencias técnicas...',
+      'Calculando score de coincidencia...',
+      'Normalizando en base de datos...'
     ];
 
-    let currentStage = 0;
-    loaderText.innerText = stages[0];
+    let idx = 0;
+    if (loaderText) loaderText.textContent = stages[0];
 
-    const stageInterval = setInterval(() => {
-      currentStage++;
-      if (currentStage < stages.length) {
-        loaderText.innerText = stages[currentStage];
-      }
-    }, 450);
+    const interval = setInterval(() => {
+      idx++;
+      if (idx < stages.length && loaderText) loaderText.textContent = stages[idx];
+    }, 420);
 
     setTimeout(() => {
-      clearInterval(stageInterval);
+      clearInterval(interval);
       loaderOverlay.classList.remove('active');
       showResults();
     }, 2000);
@@ -186,109 +203,116 @@ function initMatchSimulator() {
     const data = vacanciesData[selectedVacancy];
     if (!data) return;
 
-    // Fill content
-    matchCandidateText.innerText = `${data.candidateName} (CV_Importado.pdf)`;
-    matchTitleText.innerText = data.label;
-    
-    // Custom color classes for text
-    if (data.score >= 90) {
-      matchTitleText.style.color = 'var(--accent-cyan)';
-    } else if (data.score >= 80) {
-      matchTitleText.style.color = 'var(--accent-blue)';
-    } else {
-      matchTitleText.style.color = 'var(--accent-gold)';
+    if (matchCandidateText) matchCandidateText.textContent = `${data.candidateName} (CV_Importado.pdf)`;
+    if (matchTitleText) matchTitleText.textContent = data.label;
+
+    // Color based on score
+    if (matchTitleText) {
+      matchTitleText.className = 'text-lg font-bold mb-1';
+      if (data.score >= 90) matchTitleText.classList.add('text-cyan-400');
+      else if (data.score >= 80) matchTitleText.classList.add('text-blue-400');
+      else matchTitleText.classList.add('text-amber-400');
     }
 
-    // Populate skills tags
-    skillsContainer.innerHTML = '';
-    data.skills.forEach(skill => {
-      const span = document.createElement('span');
-      span.className = 'skill-tag';
-      span.innerText = skill;
-      skillsContainer.appendChild(span);
-    });
+    // Skills
+    if (skillsContainer) {
+      skillsContainer.innerHTML = '';
+      data.skills.forEach(skill => {
+        const tag = document.createElement('span');
+        tag.className = 'text-xs font-semibold px-3 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300';
+        tag.textContent = skill;
+        skillsContainer.appendChild(tag);
+      });
+    }
 
     resultOverlay.classList.add('active');
 
-    // Trigger SVG dial animation
-    // Circle circumference = 2 * PI * r = 2 * 3.14159 * 50 = 314
+    // Animate dial
     setTimeout(() => {
-      const percentage = data.score / 100;
-      const offset = 314 - (percentage * 314);
-      if (dialProgress) dialProgress.style.strokeDashoffset = offset;
+      const pct = data.score / 100;
+      const offset = 314 - (pct * 314);
+      if (dialArc) dialArc.style.strokeDashoffset = offset;
 
-      // Count up score number animation
+      // Count up
       let count = 0;
-      const duration = 1200; // ms
-      const stepTime = Math.abs(Math.floor(duration / data.score));
-      const timer = setInterval(() => {
+      const step = Math.max(Math.floor(1100 / data.score), 8);
+      const counter = setInterval(() => {
         count++;
-        if (dialScoreText) dialScoreText.innerText = count + '%';
-        if (count >= data.score) {
-          clearInterval(timer);
-        }
-      }, stepTime);
-    }, 100);
+        if (dialScoreText) dialScoreText.textContent = count + '%';
+        if (count >= data.score) clearInterval(counter);
+      }, step);
+    }, 80);
   }
 }
 
-/**
- * 4. Lead Form Validation
- * Prevents default submits, validates entries, and triggers a clean CSS success state.
- */
+/* ========================================
+   5. LEAD FORM VALIDATION
+   ======================================== */
 function initLeadForm() {
-  const form = document.getElementById('lead-capture-form');
-  const formContent = document.getElementById('form-inputs-container');
-  const successMessage = document.getElementById('form-success-container');
   const submitBtn = document.getElementById('btn-submit-lead');
+  const formContent = document.getElementById('form-inputs-container');
+  const successMsg = document.getElementById('form-success-container');
 
-  if (!form || !formContent || !successMessage || !submitBtn) return;
+  if (!submitBtn || !formContent || !successMsg) return;
 
   submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
     const nameInput = document.getElementById('lead-name');
     const emailInput = document.getElementById('lead-email');
+    let valid = true;
 
-    let isValid = true;
+    // Reset errors
+    document.querySelectorAll('.field-error').forEach(el => el.classList.add('hidden'));
+    if (nameInput) nameInput.classList.remove('border-red-500');
+    if (emailInput) emailInput.classList.remove('border-red-500');
 
-    // Reset error states
-    document.querySelectorAll('.form-error').forEach(err => err.style.display = 'none');
-    if (nameInput) nameInput.style.borderColor = 'var(--border-color)';
-    if (emailInput) emailInput.style.borderColor = 'var(--border-color)';
-
-    // Validate Name
+    // Name check
     if (nameInput && nameInput.value.trim() === '') {
-      const error = nameInput.parentElement.querySelector('.form-error');
-      if (error) error.style.display = 'block';
-      nameInput.style.borderColor = '#ef4444';
-      isValid = false;
+      const err = nameInput.closest('.form-group')?.querySelector('.field-error');
+      if (err) err.classList.remove('hidden');
+      nameInput.classList.add('border-red-500');
+      valid = false;
     }
 
-    // Validate Email
+    // Email check
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailInput && (!emailRegex.test(emailInput.value.trim()))) {
-      const error = emailInput.parentElement.querySelector('.form-error');
-      if (error) error.style.display = 'block';
-      emailInput.style.borderColor = '#ef4444';
-      isValid = false;
+    if (emailInput && !emailRegex.test(emailInput.value.trim())) {
+      const err = emailInput.closest('.form-group')?.querySelector('.field-error');
+      if (err) err.classList.remove('hidden');
+      emailInput.classList.add('border-red-500');
+      valid = false;
     }
 
-    if (isValid) {
-      // Simulate API submit delay
-      submitBtn.innerText = "Procesando...";
+    if (valid) {
+      submitBtn.textContent = 'Procesando...';
       submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-60', 'cursor-not-allowed');
 
-      setTimeout(() => {
+      // Real API call
+      fetch('http://localhost:3000/api/usuarios', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nombre: nameInput.value.trim(),
+          email: emailInput.value.trim(),
+          password_hash: 'lead_password_123', // Dummy password for lead
+          rol: 'Candidato'
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
         formContent.style.display = 'none';
-        successMessage.style.display = 'block';
-        
-        // Custom greeting
-        const successUser = document.getElementById('success-user-name');
-        if (successUser && nameInput) {
-          successUser.innerText = nameInput.value.trim();
-        }
-      }, 1000);
+        successMsg.style.display = 'block';
+        const userName = document.getElementById('success-user-name');
+        if (userName && nameInput) userName.textContent = nameInput.value.trim();
+      })
+      .catch(err => {
+        console.error('Error al registrar lead:', err);
+        submitBtn.textContent = 'Error. Intenta de nuevo.';
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-60', 'cursor-not-allowed');
+      });
     }
   });
 }
